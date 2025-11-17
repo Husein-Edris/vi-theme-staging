@@ -1,0 +1,66 @@
+name: Deploy WordPress Theme to PROD EC2
+
+on:
+  push:
+    branches:
+      - main-prod
+
+jobs:
+  deploy:
+    name: Deploy to EC2 PROD
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Start SSH agent
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.WORDPRESS_SSH_KEY }}
+      
+      - name: Add host to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H "${{ secrets.EC2_HOST_PROD }}" >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Backup and Deploy Theme
+        run: |
+          ssh ubuntu@${{ secrets.EC2_HOST_PROD }} << 'EOF'
+            set -e
+            sudo su
+
+            THEME_DIR="/var/www/html/wp-content/themes/vi-theme"
+            BACKUP_DIR="/var/www/html/wp-content/themes"
+            ZIP_NAME="vi-theme-backup.zip"
+            ZIP_PATH="${BACKUP_DIR}/${ZIP_NAME}"
+
+            # Remove existing backup if it exists
+            if [ -f "$ZIP_PATH" ]; then
+              echo "Removing existing backup..."
+              rm -f "$ZIP_PATH"
+            fi
+
+            echo "Creating new backup..."
+            zip -r "$ZIP_PATH" "$THEME_DIR"
+
+            echo "Removing old theme directory..."
+            rm -rf "$THEME_DIR"
+          
+            echo "Creating new directory"
+            su ubuntu
+            mkdir /home/ubuntu/vi-theme
+          
+          EOF
+
+      - name: Copy new theme content
+        run: |
+          scp -r ./* ubuntu@${{ secrets.EC2_HOST_PROD }}:/home/ubuntu/vi-theme
+
+      - name: Set files and Restart Nginx
+        run: |
+          ssh ubuntu@${{ secrets.EC2_HOST_PROD }} "sudo rm -rf /home/ubuntu/vi-theme/.github && sudo mv /home/ubuntu/vi-theme /var/www/html/wp-content/themes/ && sudo systemctl restart nginx"
+
+      - name: Clear Cloudfront Cache
+        run: |
+          curl https://api.cloudflare.com/client/v4/zones/${{ secrets.CLOUDFLARE_ZONE_ID }}/purge_cache  -H 'Content-Type: application/json' -H "X-Auth-Email: tech@virtualinternships.com" -H "X-Auth-Key: ${{ secrets.CLOUDFLARE_API_KEY }}" -d '{"purge_everything": true}'

@@ -1,0 +1,112 @@
+/* Custom Cookie Consent Styling */
+
+/* Hide default buttons more aggressively */
+#c-bns,
+.cc_div .cc-modal.cc-show .cc-link:not(.cc-deny-all):not(.cc-cookie-settings):not(.cc-allow-all),
+.cc_div .cc-modal.cc-show .cc-btn:not(.cc-deny-all):not(.cc-cookie-settings):not(.cc-allow-all),
+#c-p-bn,
+#c-s-bn {
+    display: none !important;
+}
+
+/* Ensure custom buttons are styled equally */
+.cc-btn-group .cc-btn {
+    background: #666 !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 20px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: background-color 0.3s ease !important;
+    text-decoration: none !important;
+    flex: 1 !important;
+    text-align: center !important;
+}
+
+.cc-btn-group .cc-btn:hover {
+    background: #555 !important;
+}
+
+.cc-btn-group .cc-btn:focus {
+    outline: 2px solid #0066cc !important;
+    outline-offset: 2px !important;
+}
+
+/* Custom button group styling */
+.cc-btn-group {
+    display: flex !important;
+    gap: 10px !important;
+    justify-content: center !important;
+    margin-top: 20px !important;
+    flex-wrap: wrap !important;
+}
+
+/* Responsive design for mobile */
+@media (max-width: 480px) {
+    .cc-btn-group {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+
+    .cc-btn-group .cc-btn {
+        width: 100% !important;
+        padding: 14px 16px !important;
+    }
+}
+
+/* Ensure modal has enough space for the content */
+.cc_div .cc-modal {
+    max-width: 600px !important;
+}
+
+.cc_div .cc-modal .cc-text {
+    font-size: 14px !important;
+    line-height: 1.5 !important;
+}
+
+/* Style for cookie categories list */
+.cc_div .cc-modal ul {
+    margin: 10px 0 !important;
+    padding-left: 20px !important;
+    font-size: 14px !important;
+}
+
+.cc_div .cc-modal ul li {
+    margin-bottom: 5px !important;
+}
+
+/* Links styling */
+.cc_div .cc-modal .cc-link {
+    color: #0066cc !important;
+    text-decoration: underline !important;
+}
+
+.cc_div .cc-modal .cc-link:hover {
+    color: #0052a3 !important;
+}
+
+/* Settings modal improvements */
+.cc_div .cc-settings-modal .cc-block {
+    margin-bottom: 20px !important;
+}
+
+.cc_div .cc-settings-modal .cc-toggle {
+    margin-top: 10px !important;
+}
+
+/* Ensure proper contrast for accessibility */
+.cc_div .cc-modal {
+    color: #333 !important;
+    background: white !important;
+}
+
+.cc_div .cc-modal .cc-title {
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+.header-outer {
+    display: none !important;
+}
