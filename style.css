@@ -7,54 +7,54 @@ Author URI:  https://www.linkedin.com/in/rajanvijayan/
 Template: salient
 Version: 1.0
 */
-
+/* Test Comment */
 /* ============================= */
 /* Accessibility Skip Links     */
 /* ============================= */
 
 /* Skip to Login/Signup Link - WCAG 2.4.1 Bypass Blocks Compliance */
 .skip-to-login {
-    position: absolute;
-    left: -10000px;
-    top: 0;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(1px, 1px, 1px, 1px);
-    z-index: 999999;
-    background: #ffffff;
-    padding: 12px 16px;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    font-weight: 600;
-    color: #000000;
-    text-decoration: none;
-    border: 2px solid #000000;
-    border-radius: 4px;
-    white-space: nowrap;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+	position: absolute;
+	left: -10000px;
+	top: 0;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	z-index: 999999;
+	background: #ffffff;
+	padding: 12px 16px;
+	font-family: "Poppins", sans-serif;
+	font-size: 16px;
+	font-weight: 600;
+	color: #000000;
+	text-decoration: none;
+	border: 2px solid #000000;
+	border-radius: 4px;
+	white-space: nowrap;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .skip-to-login:focus {
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    width: auto;
-    height: auto;
-    overflow: visible;
-    clip: auto;
-    outline: 3px solid #f89122;
-    outline-offset: 2px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	width: auto;
+	height: auto;
+	overflow: visible;
+	clip: auto;
+	outline: 3px solid #f89122;
+	outline-offset: 2px;
 }
 
 /* Ensure Login/Signup button is focusable when skipped to */
 #menu-item-5556 {
-    scroll-margin-top: 20px;
+	scroll-margin-top: 20px;
 }
 
 #menu-item-5556 a:focus {
-    outline: 3px solid #000000;
-    outline-offset: 2px;
+	outline: 3px solid #000000;
+	outline-offset: 2px;
 }
 
 #header-secondary-outer {
