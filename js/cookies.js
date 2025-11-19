@@ -95,22 +95,22 @@ cc.run({
 		}
 		
 		// Re-initialize Superfish after analytics scripts load to prevent interference
-		setTimeout(function() {
-			if (typeof jQuery !== 'undefined' && typeof jQuery.fn.superfish !== 'undefined') {
-				jQuery('.sf-menu:not(.buttons)').each(function() {
-					var $menu = jQuery(this);
-					// Remove any existing arrows first
-					$menu.find('.sf-arrows').remove();
-					// Properly destroy and reinitialize
-					$menu.superfish('destroy').superfish({
-						delay: 500,
-						speed: 'fast',
-						speedOut: 'fast',
-						animation: { opacity: 'show' }
-					});
-				});
-			}
-		}, 2000);
+		// setTimeout(function() {
+		// 	if (typeof jQuery !== 'undefined' && typeof jQuery.fn.superfish !== 'undefined') {
+		// 		jQuery('.sf-menu:not(.buttons)').each(function() {
+		// 			var $menu = jQuery(this);
+		// 			// Remove any existing arrows first
+		// 			$menu.find('.sf-arrows').remove();
+		// 			// Properly destroy and reinitialize
+		// 			$menu.superfish('destroy').superfish({
+		// 				delay: 500,
+		// 				speed: 'fast',
+		// 				speedOut: 'fast',
+		// 				animation: { opacity: 'show' }
+		// 			});
+		// 		});
+		// 	}
+		// }, 2000);
 	},
 
 	onChange: function (cookie, changed_preferences) {
