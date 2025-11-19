@@ -21,7 +21,7 @@ function salient_child_enqueue_styles()
 
     wp_enqueue_script('salient-child-cookies-js', 'https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.9.1/dist/cookieconsent.js', array(), $nectar_theme_version);
 
-    wp_enqueue_script('salient-child-cookies-theme-js', get_stylesheet_directory_uri() . '/js/cookies.js', array('salient-child-cookies-js'), '15.0.9');
+    wp_enqueue_script('salient-child-cookies-theme-js', get_stylesheet_directory_uri() . '/js/cookies.js', array('salient-child-cookies-js'), '16.0.9');
 
     wp_enqueue_style('vi-button-styles', get_stylesheet_directory_uri() . '/css/vi-button.css');
 
