@@ -75,15 +75,15 @@ get_template_part( 'includes/partials/footer/off-canvas-navigation' );
 		});
 
 		// Duplicate menu remove code Mobile View
-		var liText = '', liList = jQuery('.off-canvas-menu-container .menu li'), listForRemove = [];
-		jQuery(liList).each(function () {
-		var text = jQuery(this).text();
-		if (liText.indexOf('|'+ text + '|') == -1)
-			liText += '|'+ text + '|';
-		else
-			listForRemove.push(jQuery(this));
-		});
-		jQuery(listForRemove).each(function () { jQuery(this).remove(); });
+		// var liText = '', liList = jQuery('.off-canvas-menu-container .menu li'), listForRemove = [];
+		// jQuery(liList).each(function () {
+		// var text = jQuery(this).text();
+		// if (liText.indexOf('|'+ text + '|') == -1)
+		// 	liText += '|'+ text + '|';
+		// else
+		// 	listForRemove.push(jQuery(this));
+		// });
+		// jQuery(listForRemove).each(function () { jQuery(this).remove(); });
 
 		// UTM tracking
 		jQuery(function(){
